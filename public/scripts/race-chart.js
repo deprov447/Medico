@@ -3,18 +3,18 @@ jsonData.forEach(({ RACE }) => {
     members.set(RACE, (isNaN(members.get(RACE)) ? 1 : 1 + members.get(RACE)));
 })
 
-var nonAdheringMembers = new Map([...members]);
+var nonAdheringRace = new Map([...members]);
 jsonData.forEach(({ RACE, HEALTHCARE_EXPENSES, SUM_PROCEDURES, SUM_MEDICATIONS }) => {
     if (HEALTHCARE_EXPENSES < SUM_PROCEDURES + SUM_MEDICATIONS)
-        nonAdheringMembers.set(RACE, nonAdheringMembers.get(RACE) - 1);
+        nonAdheringRace.set(RACE, nonAdheringRace.get(RACE) - 1);
 })
 
-var percentage = new Map([...nonAdheringMembers])
+var percentage = new Map([...nonAdheringRace])
 percentage.forEach((value, key) => {
     percentage.set(key, Math.ceil(value * 100 / members.get(key)))
 })
 
-console.log(members, nonAdheringMembers, percentage);
+console.log(members, nonAdheringRace, percentage);
 
 const data = {
     labels: Array.from(percentage.keys()).map(str => str.toUpperCase()),
@@ -23,7 +23,7 @@ const data = {
             label: "People not adhering to medication (Out of 100)",
             backgroundColor: "rgb(255, 99, 132)",
             borderColor: "rgb(255, 99, 132)",
-            barPercentage: 0.75,
+            barPercentage: 0.5,
             data: Array.from(percentage.values())
         },
     ],
@@ -32,11 +32,12 @@ const config = {
     type: "bar",
     data: data,
     options: {
+        indexAxis: 'y',
         scales: {
-            y: {
+            x: {
                 suggestedMax: 100
             }
-        }
+        },
     },
 };
-const myChart = new Chart(document.getElementById("myChart"), config);
+const myChart = new Chart(document.getElementById("raceChart"), config);
