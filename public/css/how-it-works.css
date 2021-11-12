@@ -1,0 +1,13 @@
+/* 
+font-family: "Cormorant Garamond", serif;
+font-family: "Ubuntu", sans-serif;
+font-family: "Mitr", sans-serif;
+ */
+
+.sectionDiv {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+}

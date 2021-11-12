@@ -8,7 +8,19 @@ app.use(express.static('public'))
 
 const appLogic = (jsonData) => {
     app.get("/", (req, res) => {
-        res.render("home.ejs", { data: jsonData })
+        res.render("home.ejs")
+    })
+
+    app.get("/how-it-works", (req, res) => {
+        res.render("how-it-works.ejs")
+    })
+
+    app.get("/about", (req, res) => {
+        res.render("about.ejs", { data: jsonData })
+    })
+
+    app.get("/login-signup", (req, res) => {
+        res.render("login-signup.ejs")
     })
 
     app.listen(port, () => {

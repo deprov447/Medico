@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Mitr&family=Overpass&display=swap");
+
+/* 
+    fonts: 
+        font-family: "Cormorant Garamond", serif;
+        font-family: "Ubuntu", sans-serif;
+        font-family: "Mitr", sans-serif;
+    Pallete:
+        3d5a80
+        98c1d9
+        e0fbfc
+        ee6c4d
+        293241
+*/
+
+:root {
+  --color1: #3d5a80;
+  --color2: #98c1d9;
+  --text: #e0fbfc;
+  --nav: #ee6c4d;
+  --bg: #293241;
+}
+
+body {
+  font-family: "Mitr", sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Cormorant Garamond", serif;
+}
+
+p {
+  font-family: "Ubuntu", sans-serif;
+}
+
+.navbar {
+  background-color: var(--color2);
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+}
+
+.navitem {
+  padding: 10px;
+  width: 25vw;
+  text-align: center;
+  outline: none;
+  border: none;
+  font-family: "Mitr", sans-serif;
+  text-decoration: none;
+  color: rgb(36, 46, 56);
+}
+
+.navitem:hover {
+  background-color: var(--color1);
+  color: var(--text);
+}

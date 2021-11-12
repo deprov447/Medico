@@ -1,0 +1,49 @@
+/* 
+font-family: "Cormorant Garamond", serif;
+font-family: "Ubuntu", sans-serif;
+font-family: "Mitr", sans-serif;
+ */
+
+.sectionDiv {
+  min-height: 100vh;
+}
+
+.chart:nth-child(odd) {
+  display: flex;
+  flex-flow: wrap;
+}
+
+.chart:nth-child(even) {
+  display: flex;
+  flex-flow: wrap-reverse;
+}
+
+.chart-explanation {
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  padding: 0 20px;
+}
+
+.chart-itself {
+  /* background-color: white; */
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+@media (max-width: 1000px) {
+  .chart-explanation {
+    width: 100%;
+  }
+
+  .chart-itself {
+    width: 100%;
+  }
+
+  .image-div {
+    display: none;
+  }
+}

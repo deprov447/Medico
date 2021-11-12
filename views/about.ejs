@@ -1,0 +1,111 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medi-lytics</title>
+    <link rel="stylesheet" href="/css/about.css" />
+    <link rel="stylesheet" href="/css/partials/navbar.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="chart sectionDiv">
+        <div class="chart-explanation">
+          <h1>About</h1>
+          <h3>What we are trying to achieve and why?</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
+            ipsam autem delectus animi nulla nam commodi asperiores, blanditiis
+            ut repellendus vel sequi et laboriosam nesciunt soluta eum cum
+            obcaecati quibusdam amet enim voluptates assumenda? Laboriosam
+            officiis eaque accusantium ullam reprehenderit possimus vero nemo,
+            alias dignissimos ab soluta, ratione animi quibusdam itaque nihil
+            et. Unde adipisci praesentium accusantium? Saepe cum at repellat
+            tempore repellendus velit, recusandae provident. Recusandae sint,
+            explicabo natus totam nesciunt nihil ut. Inventore, vero
+            necessitatibus doloremque at adipisci iure quis molestias atque
+            blanditiis illo a, qui eveniet. Voluptatibus soluta obcaecati ab
+            inventore tenetur fugiat dolore in rem sed!
+          </p>
+          (*the data used here is just imaginary and does not relate with any
+          real life situation)
+        </div>
+        <div class="chart-itself image-div">
+          <p>*image here</p>
+          <img src="" alt="" />
+        </div>
+      </div>
+      <div class="sectionDiv chart">
+        <div class="chart-itself">
+          <canvas id="raceChart"></canvas>
+        </div>
+        <div class="chart-explanation">
+          <h1>Lorem ipsum dolor sit amet.</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
+            ea, consectetur, eum libero voluptates enim, commodi laudantium
+            atque eveniet necessitatibus impedit. Quod sunt, illo numquam
+            officiis deserunt soluta vero magni?
+          </p>
+        </div>
+      </div>
+      <div class="sectionDiv chart">
+        <div class="chart-explanation">
+          <h1>Lorem ipsum dolor sit amet.</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
+            ea, consectetur, eum libero voluptates enim, commodi laudantium
+            atque eveniet necessitatibus impedit. Quod sunt, illo numquam
+            officiis deserunt soluta vero magni?
+          </p>
+        </div>
+        <div class="chart-itself">
+          <canvas id="ageChart"></canvas>
+        </div>
+      </div>
+      <div class="sectionDiv chart">
+        <div class="chart-itself">
+          <canvas id="cityChart"></canvas>
+        </div>
+        <div class="chart-explanation">
+          <h1>Lorem ipsum dolor sit amet.</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
+            ea, consectetur, eum libero voluptates enim, commodi laudantium
+            atque eveniet necessitatibus impedit. Quod sunt, illo numquam
+            officiis deserunt soluta vero magni?
+          </p>
+        </div>
+      </div>
+      <div class="sectionDiv chart">
+        <div class="chart-explanation">
+          <h1>Lorem ipsum dolor sit amet.</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
+            ea, consectetur, eum libero voluptates enim, commodi laudantium
+            atque eveniet necessitatibus impedit. Quod sunt, illo numquam
+            officiis deserunt soluta vero magni?
+          </p>
+        </div>
+        <div class="chart-itself">
+          <canvas id="genderChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <%- include("partials/navbar.ejs") %>
+  </body>
+  <script>
+    var jsonData = <%- JSON.stringify(data) %>;
+  </script>
+  <script src="/scripts/race-chart.js"></script>
+  <script src="/scripts/gender-chart.js"></script>
+  <script src="/scripts/city-chart.js"></script>
+  <script src="/scripts/age-chart.js"></script>
+</html>
