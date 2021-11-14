@@ -12,12 +12,12 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <!-- <script src="https://unpkg.com/aos@2.3.0/dist/aos.js"></script> -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   </head>
   <body>
     <div class="container">
       <div class="chart sectionDiv">
-        <div class="chart-explanation">
+        <div class="chart-explanation" data-aos="fade-up">
           <h1>About</h1>
           <h3>What we are trying to achieve and why?</h3>
           <p>
@@ -37,73 +37,82 @@
           (*the data used here is just imaginary and does not relate with any
           real life situation)
         </div>
-        <div class="chart-itself image-div">
+        <div class="chart-itself image-div" data-aos="fade-down">
           <p>*image here</p>
           <img src="" alt="" />
         </div>
       </div>
       <div class="sectionDiv chart">
-        <div class="chart-itself">
+        <div class="chart-itself" data-aos="fade-down">
           <canvas id="raceChart"></canvas>
         </div>
-        <div class="chart-explanation">
-          <h1>Lorem ipsum dolor sit amet.</h1>
+        <div class="chart-explanation" data-aos="fade-up">
+          <h1>Impact from various Ethnic groups</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
-            ea, consectetur, eum libero voluptates enim, commodi laudantium
-            atque eveniet necessitatibus impedit. Quod sunt, illo numquam
-            officiis deserunt soluta vero magni?
+            This graph shows the contribution of various ethnic groups towards
+            medical inadherence. Graph is scaled down to represent the number of
+            patients who didn't adhered to the medication out of every 100
+            patients of that ethinicity.
           </p>
         </div>
       </div>
       <div class="sectionDiv chart">
-        <div class="chart-explanation">
-          <h1>Lorem ipsum dolor sit amet.</h1>
+        <div class="chart-explanation" data-aos="fade-up">
+          <h1>Which ages contribute the most?</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
-            ea, consectetur, eum libero voluptates enim, commodi laudantium
-            atque eveniet necessitatibus impedit. Quod sunt, illo numquam
-            officiis deserunt soluta vero magni?
+            This graph compares the number of people who dropped their
+            medication before time and thir ages. The graph clearly shows that
+            young-aged people (24-40 years) are highest contributors. This can
+            be attributed to the fast paced lifestyle and negligence towards
+            health of youth.
           </p>
         </div>
-        <div class="chart-itself">
+        <div class="chart-itself" data-aos="fade-down">
           <canvas id="ageChart"></canvas>
         </div>
       </div>
       <div class="sectionDiv chart">
-        <div class="chart-itself">
+        <div class="chart-itself" data-aos="fade-down">
           <canvas id="cityChart"></canvas>
         </div>
-        <div class="chart-explanation">
-          <h1>Lorem ipsum dolor sit amet.</h1>
+        <div class="chart-explanation" data-aos="fade-up">
+          <h1>Which cities are highest contributors</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
-            ea, consectetur, eum libero voluptates enim, commodi laudantium
-            atque eveniet necessitatibus impedit. Quod sunt, illo numquam
-            officiis deserunt soluta vero magni?
+            As the graph shows, Boston surprisingly has the highest number of
+            medical defaulters, with no one even near it.
           </p>
         </div>
       </div>
       <div class="sectionDiv chart">
-        <div class="chart-explanation">
-          <h1>Lorem ipsum dolor sit amet.</h1>
+        <div class="chart-explanation" data-aos="fade-up">
+          <h1>Gender Factor</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
-            ea, consectetur, eum libero voluptates enim, commodi laudantium
-            atque eveniet necessitatibus impedit. Quod sunt, illo numquam
-            officiis deserunt soluta vero magni?
+            This doughnut chart shows the distribution of defaulters on basis of
+            gender. The readings show that women have a higher rate of leaving
+            medication before the prescribed time as compared to men.
           </p>
         </div>
-        <div class="chart-itself">
+        <div class="chart-itself" data-aos="fade-down">
           <canvas id="genderChart"></canvas>
         </div>
       </div>
     </div>
 
     <%- include("partials/navbar.ejs") %>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
   <script>
-    var jsonData = <%- JSON.stringify(data) %>
+      AOS.init({
+        delay: 100, // values from 0 to 3000, with step 50ms
+        duration: 700, // values from 0 to 3000, with step 50ms
+        once: true, // whether animation should happen only once - while scrolling down
+        mirror: true, // whether elements should animate out while scrolling past them
+      })
+      console.log("AOS init")
+      var jsonData = <%- JSON.stringify(data) %>
   </script>
   <script src="/scripts/race-chart.js"></script>
   <script src="/scripts/gender-chart.js"></script>
