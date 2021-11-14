@@ -7,7 +7,7 @@ const Patient = new mongoose.Schema({
     email: String,
     doctors: { type: [String], default: Array() },
     appointments: { type: [{ doctor: String, date: Date }], default: Array() },
-    medSchedule: { type: [{ med: String, quantity: Number, period: Number }], default: Array() },
+    medSchedule: { type: [{ med: String, quantity: Number, period: Number, next: Date }], default: Array() },
     credit: { type: Number, default: 0 }
 })
 

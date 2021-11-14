@@ -15,12 +15,6 @@
   </head>
 
   <body>
-    <!-- temp -->
-    <% userData={ _id: "618f79d54d69e1677a158391" , name: "nafs" , "password" :
-    "sdnfljaf" , "imageURL" : "somurl.jpg" , "email" : "nlasdf@moasf.com" ,
-    "doctors" : [], "credit" : 20, "appointments" : [], "medSchedule" : [], } %>
-    <!-- temp -->
-
     <div class="container row">
       <div class="col s12 m4">
         <div class="credit dashbox">
@@ -35,9 +29,12 @@
           <span class="up">Upcoming</span>
           <span class="load">Medications</span>
           <ul>
-            <li>Paracetamol at 8:15PM, Today <span>✓</span></li>
-            <li>Paracetamol at 8:15PM, Today <span>✓</span></li>
-            <li>Paracetamol at 8:15PM, Today <span>✓</span></li>
+            <% userData.medSchedule.forEach(({med, quantity, period}) => { %>
+            <li>
+              <%- med %> (<%- quantity %> units) in <%- parseInt(period) - new Date().getUTCHours() %> hours
+              <span>✓</span>
+            </li>
+            <% })%>
           </ul>
         </div>
       </div>
@@ -46,11 +43,13 @@
         <div class="upcomingApps dashbox">
           <span class="up">Upcoming</span>
           <span class="load">Appointments</span>
-          <ul>
-            <li>Dr. Trivedi at 8:15PM, Today</li>
-            <li>Dr. Trivedi at 8:15PM, Today</li>
-            <li>Dr. Trivedi at 8:15PM, Today</li>
-          </ul>
+            <ul>
+              <% userData.appointments.forEach(({doctor, date}) => { %>
+              <li>
+                Clinic visit scheduled -  <%- date.toLocaleString() %>
+              </li>
+              <% })%>
+            </ul>
         </div>
       </div>
 
@@ -161,6 +160,8 @@
         );
       }
     }
+    var data = <%- JSON.stringify(userData) %>;
+    window.localStorage.setItem("userID", data._id.toString())
   </script>
   <script src="/scripts/home-logged-in.js"></script>
 </html>

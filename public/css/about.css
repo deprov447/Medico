@@ -11,11 +11,15 @@ font-family: "Mitr", sans-serif;
 .chart:nth-child(odd) {
   display: flex;
   flex-flow: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .chart:nth-child(even) {
   display: flex;
   flex-flow: wrap-reverse;
+  justify-content: center;
+  align-items: center;
 }
 
 .chart-explanation {
@@ -28,10 +32,13 @@ font-family: "Mitr", sans-serif;
 }
 
 .chart-itself {
-  /* background-color: white; */
+  background-color: var(--text);
   display: flex;
   align-items: center;
   width: 50%;
+  height: 100%;
+  padding: 50px 20px;
+  box-shadow: 5px 5px 0px var(--color1);
 }
 
 @media (max-width: 1000px) {

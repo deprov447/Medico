@@ -84,3 +84,38 @@ var rangeValue = function () {
 }
 
 elem.addEventListener("input", rangeValue);
+
+const medListCheck = document.querySelectorAll(".upcomingMeds li")
+
+console.log(window.localStorage.getItem("userID"))
+
+medListCheck.forEach((item,index) => {
+    item.addEventListener("click", () => {
+        if (item.style.textDecoration !== "line-through" && item.innerText.includes("1 hours")) {
+            item.childNodes[1].remove()
+            item.style.textDecoration = "line-through"
+            item.style.backgroundColor = "#ee6c4d70"
+            const credit = document.querySelector(".credit h2")
+            credit.innerText = parseInt(credit.innerText) + 5
+            fetch("/increaseCredit", {
+                method: "POST",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    "Authorization": `Bearer ${window.localStorage.getItem("accessToken")}`
+                },
+                body: JSON.stringify({
+                    patientId: window.localStorage.getItem("userID"),
+                    increaseCreditBy: 5,
+                    medIndex: index
+                })
+            })
+        }
+        else{
+            if(!item.innerText.includes("1 hours"))
+                alert("Still some time is left in your medication")
+            else
+                alert("Credit already added to account")
+        }
+    })
+})

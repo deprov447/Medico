@@ -105,24 +105,26 @@ const appLogic = (app, jsonData) => {
     });
 
     app.post("/increaseCredit", async (req, res) => {
+        console.log("REQBODY",req.body);
         const user = authToken(req);
         if (user == 401 || user == 403) {
             console.log("Unauthed credit attempt", user);
             res.sendStatus(user);
         } else {
             console.log("Credit attempt", user);
-            const userData = await Doctor.findById(user);
-            if (userData == null) {
-                res.sendStatus(403);
-            }
+            // const userData = await Doctor.findById(user);
+            // if (userData == null) {
+            //     res.sendStatus(403);
+            // }
             const patient = await Patient.findById(req.body.patientId);
+            console.log(req.body)
             if (patient == null) {
                 res.sendStatus(404);
             }
             await patient.updateOne({
                 credit: patient.credit + req.body.increaseCreditBy,
             });
-            res.redirect("/doctor");
+            res.redirect("/");
         }
     });
 
@@ -148,7 +150,7 @@ const appLogic = (app, jsonData) => {
             sendMail({
                 subject: "Time to visit Doctor !!",
                 text: "",
-                html: `<h1>A reminder that you have to visit Dr. ${userDate.name} today</h1>
+                html: `<h1>A reminder that you have to visit Dr. ${userData.name} today</h1>
                     Team ${process.env.NAME}
                 `,
                 to: patient.email,
