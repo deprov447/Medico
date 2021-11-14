@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Mitr&family=Overpass&display=swap");
-
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 /* 
     fonts: 
         font-family: "Cormorant Garamond", serif;
@@ -12,7 +12,6 @@
         ee6c4d
         293241
 */
-
 :root {
   --color1: #3d5a80;
   --color2: #98c1d9;
@@ -26,6 +25,7 @@ body {
   background-color: var(--bg);
   color: var(--text);
   margin: 0;
+  padding-bottom: 50px;
 }
 
 h1,
@@ -43,12 +43,13 @@ p {
   position: fixed;
   bottom: 0;
   width: 100vw;
+  justify-content: center;
   display: flex;
 }
 
 .navitem {
   padding: 10px;
-  width: 25vw;
+  min-width: 200px;
   text-align: center;
   outline: none;
   border: none;
@@ -60,4 +61,15 @@ p {
 .navitem:hover {
   background-color: var(--color1);
   color: var(--text);
+}
+
+@media (max-width: 768px) {
+  .navbar h6 {
+    display: none;
+  }
+  .navitem {
+    min-width: 25vw;
+    max-width: 25vw;
+    width: 25vw;
+  }
 }

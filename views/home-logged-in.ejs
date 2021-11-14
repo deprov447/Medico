@@ -3,9 +3,164 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Medi-lytics</title>
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="/css/home-logged-in.css" />
+    <link rel="stylesheet" href="/css/partials/navbar.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </head>
+
   <body>
-    loggedin
+    <!-- temp -->
+    <% userData={ _id: "618f79d54d69e1677a158391" , name: "nafs" , "password" :
+    "sdnfljaf" , "imageURL" : "somurl.jpg" , "email" : "nlasdf@moasf.com" ,
+    "doctors" : [], "credit" : 20, "appointments" : [], "medSchedule" : [], } %>
+    <!-- temp -->
+
+    <div class="container row">
+      <div class="col s12 m4">
+        <div class="credit dashbox">
+          <h2><%= userData.credit%></h2>
+          <span class="up">Your</span>
+          <span class="load">Score</span>
+        </div>
+      </div>
+
+      <div class="col s12 m8">
+        <div class="upcomingMeds dashbox">
+          <span class="up">Upcoming</span>
+          <span class="load">Medications</span>
+          <ul>
+            <li>Paracetamol at 8:15PM, Today <span>✓</span></li>
+            <li>Paracetamol at 8:15PM, Today <span>✓</span></li>
+            <li>Paracetamol at 8:15PM, Today <span>✓</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col s12 m12">
+        <div class="upcomingApps dashbox">
+          <span class="up">Upcoming</span>
+          <span class="load">Appointments</span>
+          <ul>
+            <li>Dr. Trivedi at 8:15PM, Today</li>
+            <li>Dr. Trivedi at 8:15PM, Today</li>
+            <li>Dr. Trivedi at 8:15PM, Today</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col s12 m6">
+        <div class="uploadBills dashbox">
+          <div class="upload">
+            <div class="upload-files">
+              <div id="heading">
+                <span class="up">Upload</span>
+                <span class="load">Bills</span>
+              </div>
+              <div class="body" id="drop">
+                <p class="pointer-none">
+                  <b>Drag and drop</b> files here <br />
+                  or <a href="" id="triggerFile">browse</a> to begin the upload
+                </p>
+                <input type="file" multiple="multiple" />
+              </div>
+              <footer>
+                <div class="divider">
+                  <span>
+                    <AR>FILES</AR>
+                  </span>
+                </div>
+                <div class="list-files">
+                  <!--   template   -->
+                </div>
+                <button class="importar">UPDATE FILES</button>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s12 m6">
+        <div class="uploadBills dashbox">
+          <div class="upload">
+            <div class="upload-files">
+              <div id="heading">
+                <span class="up">Settings</span>
+                <span class="load">(icon)</span>
+              </div>
+              <div class="settingsBody">
+                <form action="/settingUpdate">
+                  <p>
+                    <label>
+                      <input
+                        type="checkbox"
+                        checked="checked"
+                        name="enablePush"
+                      />
+                      <span>Enable Push Notifications?</span>
+                    </label>
+                  </p>
+
+                  <p>
+                    <label>
+                      <input
+                        type="checkbox"
+                        checked="checked"
+                        name="enableEmail"
+                      />
+                      <span>Enable Email Notifications?</span>
+                    </label>
+                  </p>
+
+                  <div id="timeInput">
+                    <label class="value">Notify 15 mins</label>
+                    <input
+                      type="range"
+                      min="5"
+                      max="120"
+                      step="5"
+                      value="15"
+                      name="timeInput"
+                    />
+                  </div>
+
+                  <button
+                    class="btn waves-effect waves-light"
+                    type="submit"
+                    name="action"
+                  >
+                    Save
+                    <i class="material-icons right">send</i>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include("partials/navbar.ejs") %>
   </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", init, false);
+    function init() {
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/service-worker.js").then(
+          (reg) => {
+            console.log("Service worker registered -->", reg);
+          },
+          (err) => {
+            console.error("Service worker not registered -->", err);
+          }
+        );
+      }
+    }
+  </script>
+  <script src="/scripts/home-logged-in.js"></script>
 </html>

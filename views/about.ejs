@@ -12,6 +12,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- <script src="https://unpkg.com/aos@2.3.0/dist/aos.js"></script> -->
   </head>
   <body>
     <div class="container">
@@ -102,7 +103,7 @@
     <%- include("partials/navbar.ejs") %>
   </body>
   <script>
-    var jsonData = <%- JSON.stringify(data) %>;
+    var jsonData = <%- JSON.stringify(data) %>
   </script>
   <script src="/scripts/race-chart.js"></script>
   <script src="/scripts/gender-chart.js"></script>

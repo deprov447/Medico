@@ -21,12 +21,16 @@
                     <h2 class="title">Sign in</h2>
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
-                        <input type="email" placeholder="Email" required pattern="\S+@\S+" id="signIn_email" />
+                        <input type="username" placeholder="Username" required id="signIn_username" />
 
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
                         <input type="password" placeholder="Password" id="signIn_password" />
+                    </div>
+                    <div class="input-checkbox">
+                        <i class="fas fa-stethoscope"> Are you a doctor?</i>
+                        <input type="checkbox" id="singIn_isDoctor" />
                     </div>
                     <input type="submit" value="Login" class="btn solid" id="signIn_btn"/>
 
@@ -36,19 +40,20 @@
                     <div class="input-field">
                         <i class="fas fa-user"></i>
                         <input type="text" placeholder="Full Name" id="signUp_username" required />
-
                     </div>
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
-                        <input type="email" placeholder="Email" required pattern="\S+@\S+" id="signup_email" />
-
+                        <input type="email" placeholder="Email" required pattern="\S+@\S+" id="signUp_email" />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
                         <input type="password" placeholder="Password" required minlength="6" id="signUp_password" />
-
                     </div>
-                    <input type="submit" value="Login" class="btn solid" id="signUp_btn"/>
+                    <div class="input-checkbox">
+                        <i class="fas fa-stethoscope"> Are you a doctor?</i>
+                        <input type="checkbox" id="signUp_isDoctor" />
+                    </div>
+                    <input type="submit" value="Sign Up" class="btn solid" id="signUp_btn"/>
 
                 </form>
             </div>

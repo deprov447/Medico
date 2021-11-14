@@ -19,4 +19,7 @@ mongoose.connection.once("open", () => {
 });
 
 csv().fromFile("./result.csv")
-    .then(data => require("./routes").appLogic(app, data))
+    .then(data => {
+        console.log("Generate parsed CSV file")
+        require("./routes").appLogic(app, data)
+    })
