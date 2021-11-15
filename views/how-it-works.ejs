@@ -10,10 +10,12 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   </head>
   <body>
     <div class="container">
-      <div class="sectionDiv">
+      <div class="sectionDiv" data-aos="fade">
         <h1>How it works?</h1>
         <h3>Lets explore how this app works</h3>
         <p>
@@ -25,16 +27,97 @@
         </p>
         <p>*For more detailed explanation, see <a href="#">here</a></p>
       </div>
-      <div class="sectionDiv">
-        - patients - Can upload bill copies on time for insurance credits -
+      <div>
+        <!-- - patients - Can upload bill copies on time for insurance credits -
         Comeback each day (at req time) to confirm medicine intake for little
         credits - doctors - Add patient → sends a request to patient to be
         accept - After approval, doctor can see all ongoing medication (in case
         of polypharmacy) + medical history and create a suitable prescription
-        plan accordingly. - Confirm if patient visited on time
+        plan accordingly. - Confirm if patient visited on time -->
+
+        <div class="step Aleft" data-aos="fade-up">
+          <div>
+            <img src="/images/signup.svg" alt="" />
+            <p>You created an account here</p>
+          </div>
+        </div>
+
+        <div class="step Aright" data-aos="fade-up">
+          <div>
+            <img src="/images/search.svg" alt="" />
+            <p>
+              Your doctor can now easily find you and see your medical history
+            </p>
+          </div>
+        </div>
+
+        <div class="step Aleft" data-aos="fade-up">
+          <div>
+            <img src="/images/messages.svg" alt="" />
+            <p>
+              Doctor can then add prescription lowering chances of drug
+              duplications/side effects
+            </p>
+          </div>
+        </div>
+
+        <div class="step Aright" data-aos="fade-up">
+          <div>
+            <img src="/images/confirm.svg" alt="" />
+            <p>
+              Prescriptions and appointments added by doctor show up on your
+              home screen
+            </p>
+          </div>
+        </div>
+
+        <div class="step Aleft" data-aos="fade-up">
+          <div>
+            <img src="/images/messages.svg" alt="" />
+            <p>
+              Now everytime when you confirm a medicine intake or uploading your
+              medical bills on time you earn points (Don't worry, we will remind
+              you.)
+            </p>
+          </div>
+        </div>
+
+        <div class="step Aright" data-aos="fade-up">
+          <div>
+            <img src="/images/confirm.svg" alt="" />
+            <p>When you visit your doctor on time, you earn credit</p>
+          </div>
+        </div>
+
+        <div class="step Aleft" data-aos="fade-up">
+          <div>
+            <img src="/images/messages.svg" alt="" />
+            <p>
+              Redeem these credits for insurance benefits and medical discounts
+            </p>
+          </div>
+        </div>
+
+        <div class="step Aright" data-aos="fade-up">
+          <div>
+            <img src="/images/confirm.svg" alt="" />
+            <p>Don't worry, we will remind you to take medicines.</p>
+          </div>
+        </div>
       </div>
     </div>
 
     <%- include("partials/navbar.ejs") %>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        delay: 100, // values from 0 to 3000, with step 50ms
+        duration: 700, // values from 0 to 3000, with step 50ms
+        once: false, // whether animation should happen only once - while scrolling down
+        mirror: true, // whether elements should animate out while scrolling past them
+      });
+      console.log("AOS init");
+    </script>
   </body>
 </html>

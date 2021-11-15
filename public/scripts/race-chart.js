@@ -16,6 +16,7 @@ percentage.forEach((value, key) => {
 
 console.log(members, nonAdheringRace, percentage);
 
+Chart.defaults.color = "white"
 const data = {
     labels: Array.from(percentage.keys()).map(str => str.toUpperCase()),
     datasets: [

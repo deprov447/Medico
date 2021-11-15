@@ -16,8 +16,8 @@
   </head>
   <body>
     <div class="container">
-      <div class="chart sectionDiv">
-        <div class="chart-explanation" data-aos="fade-up">
+      <div class="chart sectionDiv" data-aos="fade-up">
+        <div class="chart-explanation">
           <h1>About</h1>
           <h3>What we are trying to achieve and why?</h3>
           <p>
@@ -37,13 +37,13 @@
           (*the data used here is just imaginary and does not relate with any
           real life situation)
         </div>
-        <div class="chart-itself image-div" data-aos="fade-down">
+        <div class="chart-itself image-div">
           <p>*image here</p>
           <img src="" alt="" />
         </div>
       </div>
       <div class="sectionDiv chart">
-        <div class="chart-itself" data-aos="fade-down">
+        <div class="chart-itself" data-aos="fade-up">
           <canvas id="raceChart"></canvas>
         </div>
         <div class="chart-explanation" data-aos="fade-up">
@@ -67,12 +67,12 @@
             health of youth.
           </p>
         </div>
-        <div class="chart-itself" data-aos="fade-down">
+        <div class="chart-itself" data-aos="fade-up">
           <canvas id="ageChart"></canvas>
         </div>
       </div>
       <div class="sectionDiv chart">
-        <div class="chart-itself" data-aos="fade-down">
+        <div class="chart-itself" data-aos="fade-up">
           <canvas id="cityChart"></canvas>
         </div>
         <div class="chart-explanation" data-aos="fade-up">
@@ -92,7 +92,7 @@
             medication before the prescribed time as compared to men.
           </p>
         </div>
-        <div class="chart-itself" data-aos="fade-down">
+        <div class="chart-itself" data-aos="fade-up">
           <canvas id="genderChart"></canvas>
         </div>
       </div>
@@ -101,19 +101,16 @@
     <%- include("partials/navbar.ejs") %>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-      AOS.init();
-    </script>
-  </body>
-  <script>
       AOS.init({
         delay: 100, // values from 0 to 3000, with step 50ms
         duration: 700, // values from 0 to 3000, with step 50ms
-        once: true, // whether animation should happen only once - while scrolling down
+        once: false, // whether animation should happen only once - while scrolling down
         mirror: true, // whether elements should animate out while scrolling past them
       })
       console.log("AOS init")
       var jsonData = <%- JSON.stringify(data) %>
-  </script>
+    </script>
+  </body>
   <script src="/scripts/race-chart.js"></script>
   <script src="/scripts/gender-chart.js"></script>
   <script src="/scripts/city-chart.js"></script>

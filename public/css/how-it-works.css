@@ -11,3 +11,31 @@ font-family: "Mitr", sans-serif;
   justify-content: center;
   /* align-items: center; */
 }
+
+.step {
+  display: flex;
+  margin: 20vh 0;
+  /* background-color: red; */
+}
+
+.step.Aright {
+  justify-content: flex-end;
+}
+
+.step div {
+  width: 30vw;
+  /* background-color:yellow; */
+  text-align: center;
+}
+
+.step p {
+  font-family: "Mitr", sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
+
+.step img {
+  width: 400px;
+  /* background-color: yellow; */
+  margin-bottom: 50px;
+}
