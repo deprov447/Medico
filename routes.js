@@ -25,32 +25,25 @@ const appLogic = (app, jsonData) => {
             res.render("home.ejs");
         } else {
             console.log("Home logged in", user);
-            const userData = await Patient.findById(user);
-            if (userData == null) {
-                res.sendStatus(403);
+            const patientData = await Patient.findById(user);
+            if (patientData == null) {
+                console.log("doctor login", user);
+                const doctorData = await Doctor.findById(user);
+                if (doctorData !== null) {
+                    const allPatientData = await Patient.find({});
+                    res.render("doctor.ejs", { userData: doctorData, allPatientData: allPatientData });
+                }
+                else
+                    res.sendStatus(403);
             }
-            res.render("home-logged-in.ejs", { userData });
+            else
+                res.render("home-logged-in.ejs", { userData: patientData });
         }
     });
 
     // To remove
     app.get("/temploggedin", (req, res) => {
         res.render("home-logged-in.ejs");
-    });
-
-    app.get("/doctor", async (req, res) => {
-        const user = authToken(req);
-        if (user == 401 || user == 403) {
-            console.log("doctor notlogged in", user);
-            res.sendStatus(user);
-        } else {
-            console.log("doctor logged in", user);
-            const userData = await Doctor.findById(user);
-            if (userData == null) {
-                res.sendStatus(403);
-            }
-            res.render("doctor.ejs", { userData });
-        }
     });
 
     app.get("/how-it-works", (req, res) => {
@@ -83,6 +76,7 @@ const appLogic = (app, jsonData) => {
                 accessToken = jwt.sign(returnData._id.toString(), process.env.SECRET);
             }
             res.json({ accessToken: accessToken });
+
         } else {
             const data = {
                 name: req.body.name,
@@ -105,7 +99,7 @@ const appLogic = (app, jsonData) => {
     });
 
     app.post("/increaseCredit", async (req, res) => {
-        console.log("REQBODY",req.body);
+        console.log("REQBODY", req.body);
         const user = authToken(req);
         if (user == 401 || user == 403) {
             console.log("Unauthed credit attempt", user);

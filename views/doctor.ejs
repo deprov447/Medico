@@ -1,11 +1,67 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Doctor</title>
-</head
-<body>
-    <h1>Doctor</h1>
-</body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="/css/doctor.css" />
+    <link rel="stylesheet" href="/css/partials/navbar.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hey Dr. <%- userData.name %></h1>
+      <select id="fuzzOptionsList">
+        <% allPatientData.forEach(({name},index)=>{ %>
+        <option value="<% index%>"><%- name %></option>
+        <% }) %>
+      </select>
+      <div id="fuzzSearch">
+        <div id="fuzzNameContainer">
+          <span class="fuzzName"></span>
+        </div>
+        <div id="fuzzDropdownContainer">
+          <input
+            type="text"
+            value=""
+            class="fuzzMagicBox"
+            placeholder="search.."
+          />
+          <ul id="fuzzResults"></ul>
+        </div>
+      </div>
+      <div class="findButton">Find details</div>
+      <div class="patDetails" data-aos="fade">
+        <h5>Patient history and ongoing medications</h5>
+        <ul id="medicineList"></ul>
+      </div>
+      <div class="actions" data-aos="fade">
+        <h5>Add medication</h5>
+        <form action="/addMedicine" method="post" id="addMedicine">
+          <input type="text" name="med" placeholder="Name of Medicine" />
+          <input type="number" name="quantity" placeholder="Dosage" />
+          <input type="number" name="period" placeholder="Period" />
+          <button type="submit">Add</button>
+        </form>
+        <h5>Add Appointment</h5>
+        <form action="/addAppointment" method="post" id="addAppointment">
+          <input type="date" name="appointmentDate" />
+          <button type="submit">Add</button>
+        </form>
+        <p id="confirmVisit">Confirm recent visit</p>
+      </div>
+    </div>
+
+    <%- include("partials/navbar.ejs") %>
+    <script>
+      var allPatientData = <%- JSON.stringify(allPatientData) %>
+    </script>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://rawgit.com/zeusdeux/fuzzy-dropdown/master/dist/fuzzy-dropdown.min.js"></script>
+  <script src="/scripts/doctor.js"></script>
 </html>

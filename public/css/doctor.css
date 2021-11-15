@@ -1,0 +1,219 @@
+#fuzzSearch {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.findButton {
+  width: fit-content;
+  margin: 10px auto;
+  padding: 5px 20px;
+  background-color: var(--color1);
+}
+
+.findButton:hover {
+  color: var(--bg);
+  background-color: var(--color2);
+  cursor: pointer;
+}
+
+#fuzzNameContainer {
+  height: 40px;
+  padding: 4px 10px;
+  border-bottom: 1px solid var(--text);
+  width: 100%;
+  cursor: pointer;
+  line-height: 1.9em;
+}
+
+.fuzzName {
+  display: inline-block;
+  width: 96%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* .fuzzArrow {
+  width: 0;
+  border-style: solid;
+  border-color: transparent transparent transparent transparent;
+  border-width: 7px;
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  top: -3px;
+  -webkit-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
+}
+
+.fuzzArrow:hover {
+  border-top-color: red;
+}
+
+.fuzzArrow.fuzzArrowUp {
+  border-color: transparent transparent #333 transparent;
+  top: -11px;
+} */
+
+#fuzzDropdownContainer {
+  display: none;
+  width: 100%;
+  margin: 0 0 5px 0;
+  border: 1px solid var(--text);
+  padding: 12px 4px 4px;
+  position: relative;
+}
+
+.fuzzMagicBox {
+  width: 99%;
+  height: 26px;
+  margin: 0 20px;
+  color: var(--color2);
+}
+
+.fuzzSearchIcon {
+  width: 20px;
+  height: 14px;
+  position: relative;
+  display: inline-block;
+  background: transparent;
+  top: -20px;
+  left: 95%;
+}
+
+.fuzzSearchIcon:before,
+.fuzzSearchIcon:after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 5px;
+}
+
+.fuzzSearchIcon:before {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid #aaa;
+}
+
+.fuzzSearchIcon:after {
+  height: 7px;
+  border-right: 1px solid #aaa;
+  top: 9px;
+  -webkit-transform: rotate(-32deg);
+  -ms-transform: rotate(-32deg);
+}
+
+#fuzzResults {
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+#fuzzResults li {
+  list-style: none;
+  margin-bottom: 10px;
+  padding: 10px;
+  transition: all 0.1s ease-out;
+}
+
+#fuzzResults li:hover,
+#fuzzResults li.selected {
+  color: #fff;
+  background: var(--color1);
+}
+
+.highlight {
+  color: var(--color1);
+}
+
+#addMedicine {
+  display: flex;
+  justify-content: space-between;
+}
+
+#addMedicine input {
+  width: 20%;
+  color: var(--text);
+}
+
+#addMedicine button {
+  width: 100px;
+  background: var(--color1);
+  color: var(--text);
+  border: none;
+  transition-duration: 400ms;
+}
+
+#addMedicine button:hover {
+  background: var(--color2);
+  color: var(--bg);
+  cursor: pointer;
+}
+
+#addAppointment {
+  display: flex;
+  justify-content: space-between;
+}
+
+#addAppointment input {
+  width: 50%;
+  color: var(--text);
+}
+
+#addAppointment button {
+  width: 100px;
+  background: var(--color1);
+  color: var(--text);
+  border: none;
+  transition-duration: 400ms;
+}
+
+#addAppointment button:hover {
+  background: var(--color2);
+  color: var(--bg);
+  cursor: pointer;
+}
+
+#confirmVisit {
+  background: var(--color1);
+  padding: 10px 25px;
+  margin: 100px auto;
+  width: 400px;
+  text-align: center;
+  transition-duration: 400ms;
+}
+
+#confirmVisit:hover {
+  background: var(--color2);
+  color: var(--bg);
+  cursor: pointer;
+}
+
+.patDetails {
+  padding: 50px;
+  background-color: rgba(0, 0, 0, 0.24);
+  min-height: 50vh;
+  margin: 10vh 0;
+}
+
+.patDetails li {
+  background-color: var(--nav);
+  font-size: 17px;
+  padding: 10px 30px;
+  margin: 30px auto;
+}
+
+.actions form {
+  margin: 10vh 0;
+}
+
+h5 {
+  font-size: 30px;
+}
+
+.actions {
+  margin-bottom: 80px;
+  padding: 50px;
+  background-color: rgba(0, 0, 0, 0.24);
+}
