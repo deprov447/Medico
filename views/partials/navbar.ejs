@@ -14,8 +14,27 @@
     <h6>About</h6>
   </a>
 
-  <a href="/login-signup" class="navitem">
+  <div href="/login-signup" class="navitem loginSignupBtn">
     <i class="material-icons">vpn_key</i>
-    <h6>Login/Signup</h6>
-  </a>
+    <h6>Login / Signup</h6>
+  </d>
+  <script>
+    if(window.localStorage.getItem("accessToken")!==null)
+    {
+      document.querySelector(".loginSignupBtn h6").textContent = "Sign out";
+      document.querySelector(".loginSignupBtn i").textContent = "backspace";
+      document.querySelector(".loginSignupBtn").addEventListener("click", ()=>{
+        window.localStorage.removeItem("accessToken");
+        window.location.href="/"
+      })
+    }
+    else
+    {
+      document.querySelector(".loginSignupBtn h6").textContent = "Login / Signup"
+      document.querySelector(".loginSignupBtn i").textContent = "vpn_key";
+      document.querySelector(".loginSignupBtn").addEventListener("click", ()=>{
+        window.location.href = "/login-signup";
+      })
+    }
+  </script>
 </div>

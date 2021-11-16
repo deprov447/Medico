@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const { DateTime } = require("luxon");
 
 const Doctor = require("./model/doctor-model");
 const Patient = require("./model/patient-model");
@@ -41,11 +42,6 @@ const appLogic = (app, jsonData) => {
         }
     });
 
-    // To remove
-    app.get("/temploggedin", (req, res) => {
-        res.render("home-logged-in.ejs");
-    });
-
     app.get("/how-it-works", (req, res) => {
         res.render("how-it-works.ejs");
     });
@@ -65,6 +61,7 @@ const appLogic = (app, jsonData) => {
                 password: req.body.password, // TODO: password should be salted
             };
             let accessToken;
+            console.log(req.body)
             if (req.body.usertype === "doctor") {
                 const returnData = await Doctor.findOne(data);
                 if (returnData == null) res.sendStatus(403);
@@ -141,17 +138,19 @@ const appLogic = (app, jsonData) => {
                 doctor: user,
                 date: req.body.appointmentDate,
             });
+
+
             sendMail({
-                subject: "Time to visit Doctor !!",
-                text: "",
-                html: `<h1>A reminder that you have to visit Dr. ${userData.name} today</h1>
-                    Team ${process.env.NAME}
-                `,
+                subject: "Appointment Scheduled",
+                html: `<h3>An appointment has been scheduled with Dr. ${userData.name} at ${DateTime.fromISO(req.body.appointmentDate).toLocaleString(DateTime.DATETIME_MED)}</h3>
+                <h3>Kindly add that to your calendar</h3>
+                - Team ${process.env.NAME}
+            `,
                 to: patient.email,
-                when: req.body.appointmentDate,
+                when: DateTime.now().toISO(),
             });
             await patient.save();
-            res.redirect("/doctor");
+            res.redirect("/");
         }
     });
 
@@ -166,6 +165,7 @@ const appLogic = (app, jsonData) => {
             if (userData == null) {
                 res.sendStatus(403);
             }
+            console.log(req.body)
             let patient = await Patient.findById(req.body.patientId);
             if (patient == null) {
                 res.sendStatus(404);
@@ -175,19 +175,8 @@ const appLogic = (app, jsonData) => {
                 quantity: req.body.quantity,
                 period: req.body.period,
             });
-            var currentDate = new Date();
-            var futureDate = new Date(currentDate.getTime() + 5 * 60000);
-            sendMail({
-                subject: "Time for Medicines !!",
-                text: "",
-                html: `<h1>Just a reminder to take ${req.body.med} (${req.body.quantity} capsules)</h1>
-                    Team ${process.env.NAME}
-                `,
-                to: patient.email,
-                when: futureDate,
-            });
             await patient.save();
-            res.redirect("/doctor");
+            res.redirect("/");
         }
     });
 

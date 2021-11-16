@@ -1,38 +1,27 @@
-const mailjet = require('node-mailjet')
-    .connect(process.env.MAIL_API_KEY, process.env.MAIL_SECRET_KEY)
+const nodemailer = require('nodemailer')
+
+const transporter = nodemailer.createTransport({
+    service: "hotmail",
+    auth: {
+        user: process.env.MAIL_ID,
+        pass: process.env.MAIL_PASS
+    }
+})
 
 const sendMail = ({ subject, text, html, to, when }) => {
-    const request = mailjet
-        .post("send", { 'version': 'v3.1' })
-        .action("schedule")
-        .request({
-            "Date": when,
-            "Messages": [
-                {
-                    "From": {
-                        "Email": "medi-lysis@deprov447.tech",
-                        "Name": "Medi-lysis"
-                    },
-                    "To": [
-                        {
-                            "Email": to.email,
-                            "Name": to.name
-                        }
-                    ],
-                    "Subject": subject,
-                    "TextPart": text,
-                    "HTMLPart": html,
-                    "CustomID": "AppGettingStartedTest"
-                }
-            ]
-        })
-    request
-        .then((result) => {
-            console.log("Mail sent", result.body)
-        })
-        .catch((err) => {
-            console.log(err.statusCode)
-        })
+    const option = {
+        from: process.env.MAIL_ID,
+        to,
+        subject,
+        html,
+    }
+
+    transporter.sendMail(option, function (err, info) {
+        if (err) {
+            console.log(err)
+        }
+        console.log("sent", info.response)
+    })
 }
 
 module.exports = sendMail

@@ -109,6 +109,8 @@ medListCheck.forEach((item,index) => {
                     increaseCreditBy: 5,
                     medIndex: index
                 })
+            }).then(()=>{
+                console.log("credit add request send")
             })
         }
         else{

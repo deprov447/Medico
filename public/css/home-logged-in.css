@@ -21,10 +21,17 @@ h2 {
   font-size: 7rem;
 }
 
+.col{
+  height: 480px;
+  display: flex;
+  align-items: center;  
+}
+
 .dashbox {
   padding: 20px;
   margin: 20px;
   background-color: rgba(0, 0, 0, 0.192);
+  width: 100%;
 }
 
 .upcomingMeds ul li,

@@ -1,0 +1,19 @@
+.sectionDiv {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  overflow: hidden;
+}
+
+.sectionDiv * {
+  margin: 20px auto;
+}
+
+#continueWithBrowser{
+    color: var(--text);
+}

@@ -48,7 +48,7 @@ function signInfunc() {
         name: $("#signIn_username").val(),
         // email: $("#signIn_email").val(),
         password: $("#signIn_password").val(),
-        usertype: $("#signUp_isDoctor").is(":checked") ? "doctor" : "patient",
+        usertype: $("#signIn_isDoctor").is(":checked") ? "doctor" : "patient",
         // imageURL: "somurl.jpg",
     };
     $.ajax({

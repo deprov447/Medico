@@ -40,18 +40,33 @@
       </div>
       <div class="actions" data-aos="fade">
         <h5>Add medication</h5>
-        <form action="/addMedicine" method="post" id="addMedicine">
+        <form
+          action="#"
+          method="post"
+          id="addMedicine"
+          onsubmit="addMedicine();return false"
+        >
           <input type="text" name="med" placeholder="Name of Medicine" />
           <input type="number" name="quantity" placeholder="Dosage" />
           <input type="number" name="period" placeholder="Period" />
           <button type="submit">Add</button>
         </form>
         <h5>Add Appointment</h5>
-        <form action="/addAppointment" method="post" id="addAppointment">
-          <input type="date" name="appointmentDate" />
+        <form
+          action="#"
+          method="post"
+          id="addAppointment"
+          onsubmit="addAppointment();return false"
+        >
+          <input type="datetime-local" name="appointmentDate">
           <button type="submit">Add</button>
         </form>
-        <p id="confirmVisit">Confirm recent visit</p>
+        <p
+          id="confirmVisit"
+          onClick="alert('Functionality not implemented as of now')"
+        >
+          Confirm recent visit
+        </p>
       </div>
     </div>
 

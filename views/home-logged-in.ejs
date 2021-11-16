@@ -11,10 +11,13 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@2.1.1/build/global/luxon.min.js"></script>
   </head>
 
   <body>
     <div class="container row">
+      <h1>Hey <%= userData.name %></h1>
       <div class="col s12 m4">
         <div class="credit dashbox">
           <h2><%= userData.credit%></h2>
@@ -30,7 +33,10 @@
           <ul>
             <% userData.medSchedule.forEach(({med, quantity, period}) => { %>
             <li>
-              <%- med %> (<%- quantity %> units) in <%- parseInt(period) - new Date().getUTCHours() %> hours
+              <%- med %> (<%- quantity %> units) in <%-
+              parseInt(period)*(Math.ceil(new
+              Date().getHours()/parseInt(period))) - new Date().getHours() %>
+              hours
               <span>✓</span>
             </li>
             <% })%>
@@ -42,13 +48,15 @@
         <div class="upcomingApps dashbox">
           <span class="up">Upcoming</span>
           <span class="load">Appointments</span>
-            <ul>
-              <% userData.appointments.forEach(({doctor, date}) => { %>
-              <li>
-                Clinic visit scheduled -  <%- date.toLocaleString() %>
-              </li>
-              <% })%>
-            </ul>
+          <ul>
+            <% userData.appointments.forEach(({doctor, date}) => { %>
+            <li>
+              Clinic visit scheduled - <%- date.toLocaleString('en-IN',{weekday:
+              'short', day: 'numeric', month: 'short', hour: 'numeric', minute:
+              'numeric'}) %>
+            </li>
+            <% })%>
+          </ul>
         </div>
       </div>
 
@@ -92,7 +100,7 @@
                 <span class="load">(icon)</span>
               </div>
               <div class="settingsBody">
-                <form action="/settingUpdate">
+                <form action="#">
                   <p>
                     <label>
                       <input
@@ -145,7 +153,6 @@
 
     <%- include("partials/navbar.ejs") %>
   </body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", init, false);
     function init() {

@@ -5,9 +5,14 @@ font-family: "Mitr", sans-serif;
  */
 
 .sectionDiv {
-  height: 110vh;
+  height: 100vh;
 }
 
+.chart{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 /* .chart:nth-child(odd) {
   display: flex;
   flex-flow: wrap;

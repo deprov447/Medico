@@ -14,7 +14,16 @@
     />
   </head>
   <body>
-    W <%- include("partials/navbar.ejs") %>
+    <div class="sectionDiv">
+      <h1>Welcome to Medico</h1>
+      <h5>An app to remember your medicines and medicals</h5>
+      <img src="/images/signup.svg" width="400px" />
+
+      <a class="waves-effect waves-light btn-large blue accent-4">Download app</a>
+      <a href="/login-signup" id="continueWithBrowser">Or you can continue on browser</a>
+    </div>
+
+    <%- include("partials/navbar.ejs") %>
   </body>
   <script>
     document.addEventListener("DOMContentLoaded", init, false);
