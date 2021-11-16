@@ -190,7 +190,7 @@ const appLogic = (app, jsonData) => {
     app.post("/subscribe", (req, res) => {
         const subscription = req.body;
         res.status(201);
-        const payload = JSON.stringify({ title: "Push Test" });
+        const payload = JSON.stringify({ title: "Medico" });
         console.log(subscription)
         webpush
             .sendNotification(subscription, payload)

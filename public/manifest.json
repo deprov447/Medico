@@ -1,7 +1,7 @@
 {
-  "name": "Medi-lysis: Get smarter with your health",
-  "short_name": "Medi-lysis",
-  "description": "An interactive app to never forget your medicines again",
+  "name": "Medico",
+  "short_name": "Medico",
+  "description": "Never forget your medicines again",
   "icons": [
     {
       "src": "/icons/manifest-icon-192.maskable.png",
@@ -29,7 +29,7 @@
     }
   ],
   "start_url": "/",
-  "display": "fullscreen",
-  "theme_color": "#764ABC",
-  "background_color": "#764ABC"
+  "display": "standalone",
+  "theme_color": "#293241",
+  "background_color": "#293241"
 }

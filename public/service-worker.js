@@ -1,15 +1,15 @@
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.2.0/workbox-sw.js');
 
 workbox.routing.registerRoute(
-    ({ register }) => request.destination === 'image',
+    ({ request }) => request.destination === 'image',
     new workbox.strategies.CacheFirst()
 );
 
 self.addEventListener("push", e => {
     const data = e.data.json();
-    console.log("Push Recieved...a");
+    console.log("Push Recieved...");
     self.registration.showNotification(data.title, {
-        body: "Notified by Traversy Media!",
-        icon: "http://image.ibb.co/frYOFd/tmlogo.png"
+        body: "Thanks for enabling notifications",
+        icon: "/icons/manifest-icon-512.maskable.png"
     });
 });
