@@ -1,5 +1,12 @@
 const jwt = require("jsonwebtoken");
 const { DateTime } = require("luxon");
+const webpush = require("web-push")
+
+webpush.setVapidDetails(
+    "mailto:test@test.com",
+    process.env.VAPID_PUB_KEY,
+    process.env.VAPID_PRIV_KEY
+);
 
 const Doctor = require("./model/doctor-model");
 const Patient = require("./model/patient-model");
@@ -179,6 +186,16 @@ const appLogic = (app, jsonData) => {
             res.redirect("/");
         }
     });
+
+    app.post("/subscribe", (req, res) => {
+        const subscription = req.body;
+        res.status(201);
+        const payload = JSON.stringify({ title: "Push Test" });
+        console.log(subscription)
+        webpush
+            .sendNotification(subscription, payload)
+            .catch(err => console.log("Notif Error", err))
+    })
 
     app.listen(port, () => {
         console.log(`${process.env.NAME} app running on port ${port}`);

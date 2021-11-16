@@ -4,7 +4,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Medi-lytics</title>
-    <script src="/scripts/home.js"></script>
+    <script>
+      if (localStorage.getItem("accessToken") !== null) {
+        let headers = new Headers();
+        headers.append(
+          "Authorization",
+          "Bearer " + localStorage.getItem("accessToken")
+        );
+
+        fetch(window.location.href, {
+          method: "GET",
+          headers: headers,
+        })
+          .then((data) => data.text())
+          .then((html) => {
+            document.write(html);
+          })
+          .catch((err) => console.error(err));
+      } else console.log("AccessToken not found");
+    </script>
     <link rel="manifest" href="/manifest.json" />
     <link rel="stylesheet" href="/css/home.css" />
     <link rel="stylesheet" href="/css/partials/navbar.css" />
@@ -19,25 +37,17 @@
       <h5>An app to remember your medicines and medicals</h5>
       <img src="/images/signup.svg" width="400px" />
 
-      <a class="waves-effect waves-light btn-large blue accent-4">Download app</a>
-      <a href="/login-signup" id="continueWithBrowser">Or you can continue on browser</a>
+      <a
+        class="waves-effect waves-light btn-large blue accent-4"
+        id="downloadApp"
+        >Download app</a
+      >
+      <a href="/login-signup" id="continueWithBrowser"
+        >Or you can continue on browser</a
+      >
     </div>
 
     <%- include("partials/navbar.ejs") %>
   </body>
-  <script>
-    document.addEventListener("DOMContentLoaded", init, false);
-    function init() {
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("/service-worker.js").then(
-          (reg) => {
-            console.log("Service worker registered -->", reg);
-          },
-          (err) => {
-            console.error("Service worker not registered -->", err);
-          }
-        );
-      }
-    }
-  </script>
+  <script src="/scripts/home.js"></script>
 </html>
