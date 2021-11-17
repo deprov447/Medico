@@ -22,7 +22,7 @@
 }
 
 body {
-  font-family: "Mitr", sans-serif;
+  font-family: "Cormorant Garamond", serif;
   background-color: #293241;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3CradialGradient id='a' cx='0' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23323e50'/%3E%3Cstop offset='1' stop-color='%23323e50' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='1200' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%2334465f'/%3E%3Cstop offset='1' stop-color='%2334465f' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='c' cx='600' cy='0' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%233d516f'/%3E%3Cstop offset='1' stop-color='%233d516f' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='d' cx='600' cy='800' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23293241'/%3E%3Cstop offset='1' stop-color='%23293241' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='e' cx='0' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%233C495F'/%3E%3Cstop offset='1' stop-color='%233C495F' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='f' cx='1200' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%233D5A80'/%3E%3Cstop offset='1' stop-color='%233D5A80' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='1200' height='800'/%3E%3Crect fill='url(%23b)' width='1200' height='800'/%3E%3Crect fill='url(%23c)' width='1200' height='800'/%3E%3Crect fill='url(%23d)' width='1200' height='800'/%3E%3Crect fill='url(%23e)' width='1200' height='800'/%3E%3Crect fill='url(%23f)' width='1200' height='800'/%3E%3C/svg%3E");
   background-attachment: fixed;
@@ -34,12 +34,7 @@ body {
 h1,
 h2,
 h3 {
-  font-family: "Cormorant Garamond", serif;
   color: var(--text);
-}
-
-p {
-  font-family: "Ubuntu", sans-serif;
 }
 
 * {
@@ -98,27 +93,30 @@ form.sign-in-form {
 }
 
 .title {
-  font-size: 2.2rem;
+  font-size: 3rem;
   margin-bottom: 10px;
+  font-family: "Cormorant Garamond", serif;
 }
 
 .input-field {
   max-width: 380px;
   width: 100%;
   background-color: var(--text);
+  color: var(--bg);
   margin: 10px 0;
   height: 55px;
   border-radius: 5px;
   display: grid;
   grid-template-columns: 15% 85%;
   padding: 0 0.4rem;
+  font-family: "Cormorant Garamond", serif;
   position: relative;
 }
 
 .input-field i {
   text-align: center;
   line-height: 55px;
-  color: black;
+  color: var(--bg);
   transition: 0.1s;
   font-size: 1.1rem;
 }
@@ -444,4 +442,30 @@ form.sign-in-form {
 }
 h6 {
   padding-bottom: 40px;
+}
+
+.input-checkbox {
+  margin: 20px 0;
+}
+
+#sign-up-btn {
+  margin: 20px 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content p {
+  margin: 70px 0;
+  font-size: 20px;
+}
+
+#sign-up-btn:hover,
+#sign-in-btn:hover {
+  color: black;
+  background-color: var(--text);
 }

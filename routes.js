@@ -26,6 +26,17 @@ const authToken = (req) => {
 };
 
 const appLogic = (app, jsonData) => {
+
+    var subscription;
+    app.post("/subscribe", (req, res) => {
+        subscription = req.body;
+        res.status(201);
+        // const payload = JSON.stringify({ title: "Medico" });
+        // webpush
+        //     .sendNotification(subscription, payload)
+        //     .catch(err => console.log("Notif Error", err))
+    })
+
     app.get("/", async (req, res) => {
         const user = authToken(req);
         if (user == 401 || user == 403) {
@@ -44,8 +55,24 @@ const appLogic = (app, jsonData) => {
                 else
                     res.sendStatus(403);
             }
-            else
+            else {
                 res.render("home-logged-in.ejs", { userData: patientData });
+                patientData.medSchedule.forEach(({ med, quantity, period }) => {
+                    const payload = JSON.stringify({
+                        title: "Time for medicine",
+                        body: `Please take ${med} (${quantity})`,
+                        period
+                    })
+                    webpush
+                        .sendNotification(subscription, payload)
+                        .catch(err => console.log("Notif Error", err))
+                })
+
+                // TODO: Remove
+                webpush
+                    .sendNotification(subscription, JSON.stringify({ title: "Logged in" }))
+                    .catch(err => console.log("Notif Error", err))
+            }
         }
     });
 
@@ -186,16 +213,6 @@ const appLogic = (app, jsonData) => {
             res.redirect("/");
         }
     });
-
-    app.post("/subscribe", (req, res) => {
-        const subscription = req.body;
-        res.status(201);
-        const payload = JSON.stringify({ title: "Medico" });
-        console.log(subscription)
-        webpush
-            .sendNotification(subscription, payload)
-            .catch(err => console.log("Notif Error", err))
-    })
 
     app.listen(port, () => {
         console.log(`${process.env.NAME} app running on port ${port}`);

@@ -17,12 +17,15 @@
 
   <body>
     <div class="container row">
-      <h1>Hey <%= userData.name %></h1>
+      <h1 style="text-align:center">Medico</h1>
+      <h4 style="text-align:center">Hello <%= userData.name %></h4>
       <div class="col s12 m4">
         <div class="credit dashbox">
-          <h2><%= userData.credit%></h2>
-          <span class="up">Your</span>
-          <span class="load">Score</span>
+          <div class="upload">
+            <h2><%= userData.credit%></h2>
+            <span class="up">Your</span>
+            <span class="load">Score</span>
+          </div>
         </div>
       </div>
 
