@@ -1,5 +1,5 @@
 {
-  "name": "medi-lysis",
+  "name": "medico",
   "version": "1.0.0",
   "description": "An interactive app to never forget your medicines again",
   "main": "index.js",
@@ -17,7 +17,6 @@
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "luxon": "^2.1.1",
-    "mailgun-js": "^0.22.0",
     "mongoose": "^6.0.12",
     "nodemailer": "^6.7.1",
     "web-push": "^3.4.5"

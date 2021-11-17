@@ -15,6 +15,12 @@ body {
   text-align: center;
 }
 
-#continueWithBrowser{
-    color: var(--text);
+#continueWithBrowser {
+  color: var(--text);
+}
+
+@media (max-width: 768px) {
+  .sectionDiv a {
+    display: none;
+  }
 }

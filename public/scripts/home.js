@@ -45,3 +45,7 @@ async function sendSubscribeObj(register) {
     });
     console.log("Push Sent...");
 }
+
+document.querySelector("#downloadApp").addEventListener("click", () => {
+    alert("Click on the install button in address bar")
+})
