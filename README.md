@@ -20,7 +20,7 @@ Insurance companies face a lot of damage due to improper medication procedure. U
 
 [Medico](https://medico.deprov447.tech/) is our prototype for the proposed solution. It is a progressive web app, which can be used either through the [website](https://medico.deprov447.tech/) or using the native app (available on the website).
 
-Please watch this [youtube](#) video for a walkthrough to Medico's features and functionalities.
+Please watch this [youtube](https://youtu.be/7pq2HFr2kMc) video for a walkthrough to Medico's features and functionalities.
 
 ## Tech stack used
 
