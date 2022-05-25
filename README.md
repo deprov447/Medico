@@ -10,7 +10,7 @@ The solution we propose is a credit-based-reward system, which will encourage th
 
 Insurance companies face a lot of damage due to improper medication procedure. Using this system, they can also ensure that the patient is regular and develop reputations for individual patient on basis of whether or not they stick to the medication, and then systematically reward them.
 
-[Medico](https://medico.deprov447.tech/) is our prototype for the proposed solution. It is a progressive web app, which can be used either through the [website](https://medico.deprov447.tech/) or using the native app (available on the website).
+[Medico](https://medico.deprov447.me/) is our prototype for the proposed solution. It is a progressive web app, which can be used either through the [website](https://medico.deprov447.me/) or using the native app (available on the website).
 
 ## Tech stack used
 
